@@ -30,12 +30,19 @@ public class UserLogs {
             input = sc.nextLine();
         }
 
-        users.entrySet().forEach(e -> {
-            System.out.println(e.getKey() + ":");
+        users.forEach((key, value) -> {
+            System.out.println(key + ":");
 
-            for(Map.Entry<String, Integer> ip : e.getValue().entrySet()){
-                //TODO print results
+            int counter = 0;
+            for (Map.Entry<String, Integer> ip : value.entrySet()) {
+                if (counter == value.size() - 1) {
+                    System.out.print(ip.getKey() + " => " + ip.getValue() + ".");
+                } else {
+                    System.out.print(ip.getKey() + " => " + ip.getValue() + ", ");
+                }
+                counter++;
             }
+            System.out.println();
         });
     }
 }
