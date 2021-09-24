@@ -1,4 +1,4 @@
-package Exercise;
+/*package Exercise;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -8,11 +8,9 @@ import java.util.List;
 public class AllCapitals {
     public static void main(String[] args) {
 
-
         //File file = new File("input.txt");
         try {
-            List<String> lines = Files.readAllLines(Path.of("C:\\Users\\PC\\OneDrive\\Работен плот" +
-                    "\\Exercise-Resources" +
+            List<String> lines = Files.readAllLines(Path.of("C:\\Users\\Angelov Velizar\\Desktop\\Resources" +
                     "\\04. Java-Advanced-Files-and-Streams-Exercises-Resources" +
                     "\\Exercises Resources\\input.txt"));
             FileWriter fileWriter = new FileWriter("all-capitals-output.txt");
@@ -31,4 +29,4 @@ public class AllCapitals {
 
 
     }
-}
+}*/
