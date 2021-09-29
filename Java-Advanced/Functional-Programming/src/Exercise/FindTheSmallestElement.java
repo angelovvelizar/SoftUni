@@ -1,6 +1,8 @@
 package Exercise;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 import java.util.function.Function;
 
@@ -11,6 +13,7 @@ public class FindTheSmallestElement {
                 .mapToInt(Integer::parseInt).toArray();
 
         Function<int[], Integer> findSmallest = array -> getSmallestElement(array);
+
 
         System.out.println(findSmallest.apply(numbers));
     }

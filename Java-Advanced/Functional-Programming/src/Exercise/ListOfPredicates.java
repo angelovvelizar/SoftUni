@@ -1,5 +1,8 @@
 package Exercise;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -8,19 +11,35 @@ import java.util.function.Predicate;
 import java.util.stream.IntStream;
 
 public class ListOfPredicates {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int number = Integer.parseInt(sc.nextLine());
-        int[] dividersArray = Arrays.stream(sc.nextLine().split(" "))
-                .mapToInt(Integer::parseInt).toArray();
-        List<Integer> divisibleNumbers = new ArrayList<>();
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-
-
-        for (int i = 1; i <= number; i++) {
-            for (int j = 0; j < dividersArray.length; j++) {
-
-            }
+        int n = Integer.parseInt(reader.readLine());
+        if (n<0)
+        {
+            return;
         }
+        Integer[] arr = new Integer[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = i + 1;
+        }
+
+        Integer[] divisors = Arrays.stream(reader.readLine().split("\\s+"))
+                .map(Integer::parseInt)
+                .toArray(Integer[]::new);
+
+        Predicate<Integer> check = (i) -> {
+            for (Integer a : divisors) {
+                if (a == 0)
+                    continue;
+                if (i % a != 0)
+                    return false;
+            }
+            return true;
+        };
+
+        for (Integer i : arr)
+            if (check.test(i))
+                System.out.printf("%d ", i);
     }
 }
