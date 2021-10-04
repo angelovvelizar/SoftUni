@@ -40,7 +40,7 @@ public class Stack {
 
     private void ensureNonEmpty(){
         if(this.top == null){
-            throw  new IllegalArgumentException("Empty Stach");
+            throw  new IllegalArgumentException("Empty Stack");
         }
     }
 
