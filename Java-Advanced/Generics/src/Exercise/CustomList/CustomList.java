@@ -2,9 +2,10 @@ package Exercise.CustomList;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
-public class CustomList<T extends Comparable<T>> {
+public class CustomList<T extends Comparable<T>> implements Iterable<T> {
     private List<T> elements;
 
     public CustomList(){
@@ -49,6 +50,24 @@ public class CustomList<T extends Comparable<T>> {
 
     public T getMin(){
         return Collections.min(this.elements);
+    }
+
+    @Override
+    public Iterator<T> iterator(){
+        return  new Iterator<T>() {
+            private int index = 0;
+
+            @Override
+            public boolean hasNext() {
+                return index < elements.size();
+            }
+
+            @Override
+            public T next() {
+                return elements.get(index);
+
+            }
+        };
     }
 
 

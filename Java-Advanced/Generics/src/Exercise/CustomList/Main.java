@@ -41,8 +41,10 @@ public class Main {
                     System.out.println(customList.getMin());
                     break;
                 case "Print":
-                    customList.getElements()
-                            .forEach(System.out::println);
+                    customList.forEach(System.out::println);
+                    break;
+                case "Sort":
+                    Sorter.sort(customList);
                     break;
             }
             command = sc.nextLine();
