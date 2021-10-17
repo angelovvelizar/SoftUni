@@ -23,10 +23,10 @@ public class PastryShop {
         ArrayDeque<Integer> ingredientsStack = new ArrayDeque<>();
         Arrays.stream(ingredients).forEach(ingredientsStack::push);
 
-        int biscuitsMade = 0;
+        int breadMade = 0;
         int cakesMade = 0;
         int pastryMade = 0;
-        int piesMade = 0;
+        int fruitPie = 0;
 
         while (!liquidsQue.isEmpty() && !ingredientsStack.isEmpty()) {
             int liquid = liquidsQue.poll();
@@ -35,7 +35,7 @@ public class PastryShop {
             int sum = liquid + ingredient;
             switch (sum) {
                 case 25:
-                    biscuitsMade++;
+                    breadMade++;
                     ingredientsStack.pop();
                     break;
                 case 50:
@@ -47,7 +47,7 @@ public class PastryShop {
                     ingredientsStack.pop();
                     break;
                 case 100:
-                    piesMade++;
+                    fruitPie++;
                     ingredientsStack.pop();
                     break;
                 default:
@@ -58,10 +58,10 @@ public class PastryShop {
             }
         }
 
-        if (biscuitsMade > 0 && cakesMade > 0 && pastryMade > 0 && piesMade > 0) {
-            System.out.println("Great! You succeeded in cooking all the food!");
+        if (breadMade > 0 && cakesMade > 0 && pastryMade > 0 && fruitPie > 0) {
+            System.out.println("Wohoo! You succeeded in cooking all the food!");
         } else {
-            System.out.println("What a pity! You didn't have enough materials to cook everything.");
+            System.out.println("Ugh, what a pity! You didn't have enough materials to cook everything." );
         }
 
         String output;
@@ -82,9 +82,9 @@ public class PastryShop {
             System.out.println(output);
         }
 
-        System.out.println("Biscuit: " + biscuitsMade);
+        System.out.println("Bread: " + breadMade);
         System.out.println("Cake: " + cakesMade);
-        System.out.println("Pie: " + piesMade);
+        System.out.println("Fruit Pie: " + fruitPie);
         System.out.println("Pastry: " + pastryMade);
 
 
