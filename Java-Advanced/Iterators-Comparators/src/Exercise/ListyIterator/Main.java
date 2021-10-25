@@ -1,6 +1,7 @@
-package Exercise;
+package Exercise.ListyIterator;
 
-import java.util.ArrayList;
+import Exercise.ListyIterator.ListyIterator;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -31,6 +32,13 @@ public class Main {
                     break;
                 case "Print":
                     listyIterator.Print();
+                    break;
+                case "PrintAll":
+                    try {
+                        listyIterator.PrintAll();
+                    }catch (IllegalStateException e){
+                        System.out.println(e.getMessage());
+                    }
                     break;
             }
 
