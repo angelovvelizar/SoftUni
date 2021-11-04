@@ -1,4 +1,4 @@
-//package Exercise.zoo;
+package Exercise.zoo;
 
 public class Bear extends Mammal{
     public Bear(String name) {

@@ -1,4 +1,4 @@
-//package Exercise.zoo;
+package Exercise.zoo;
 
 public class Reptile extends Animal {
 

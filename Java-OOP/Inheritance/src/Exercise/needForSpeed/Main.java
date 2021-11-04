@@ -1,4 +1,4 @@
-package Exercise.zoo;
+package Exercise.needForSpeed;
 
 public class Main {
     public static void main(String[] args) {
