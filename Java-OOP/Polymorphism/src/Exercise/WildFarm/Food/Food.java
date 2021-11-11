@@ -1,3 +1,5 @@
+package Exercise.WildFarm.Food;
+
 public abstract class Food {
     private Integer quantity;
 

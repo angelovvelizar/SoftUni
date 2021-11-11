@@ -1,3 +1,12 @@
+package Exercise.WildFarm;
+
+import Exercise.WildFarm.Animals.*;
+import Exercise.WildFarm.Food.Food;
+import Exercise.WildFarm.Food.Meat;
+import Exercise.WildFarm.Food.Vegetable;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -5,6 +14,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         String animalInfo = sc.nextLine();
+
+        List<Animal> animals = new ArrayList<>();
+
         while(!animalInfo.equals("End")){
             String foodInfo = sc.nextLine();
 
@@ -15,22 +27,26 @@ public class Main {
             Food food = createFood(foodTokens);
 
             animal.makeSound();
+
             try{
                 animal.eat(food);
             }catch (IllegalArgumentException e){
                 System.out.println(e.getMessage());
             }
 
-
-            System.out.println(animal.toString());
+            animals.add(animal);
 
 
             animalInfo = sc.nextLine();
         }
+
+        for (Animal animal : animals) {
+            System.out.println(animal.toString());
+        }
     }
 
     private static Food createFood(String[] foodTokens) {
-        if(foodTokens[0].equals("Vegetable")){
+        if(foodTokens[0].equals("Exercise.WildFarm.Food.Vegetable")){
             return new Vegetable(Integer.parseInt(foodTokens[1]));
         }
 
@@ -39,16 +55,16 @@ public class Main {
 
     private static Animal createAnimal(String[] animalTokens) {
         switch (animalTokens[0]){
-            case "Cat":
+            case "Exercise.WildFarm.Animals.Cat":
                 return new Cat(animalTokens[1],animalTokens[0],Double.parseDouble(animalTokens[2]),animalTokens[3],animalTokens[4]);
-            case "Tiger":
+            case "Exercise.WildFarm.Animals.Tiger":
                 return new Tiger(animalTokens[1],animalTokens[0],Double.parseDouble(animalTokens[2]), animalTokens[3]);
-            case "Zebra":
+            case "Exercise.WildFarm.Animals.Zebra":
                 return new Zebra(animalTokens[1],animalTokens[0],Double.parseDouble(animalTokens[2]),animalTokens[3]);
-            case "Mouse":
+            case "Exercise.WildFarm.Animals.Mouse":
                 return new Mouse(animalTokens[1],animalTokens[0],Double.parseDouble(animalTokens[2]),animalTokens[3]);
             default:
-                return null;
+                throw new IllegalStateException("unknown animal type " + animalTokens[0]);
         }
     }
 }

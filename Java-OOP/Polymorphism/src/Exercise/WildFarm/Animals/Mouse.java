@@ -1,3 +1,9 @@
+package Exercise.WildFarm.Animals;
+
+
+import Exercise.WildFarm.Food.Food;
+import Exercise.WildFarm.Food.Vegetable;
+
 public class Mouse extends Mammal {
 
 

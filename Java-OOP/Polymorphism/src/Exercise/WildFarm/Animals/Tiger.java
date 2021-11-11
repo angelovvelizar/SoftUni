@@ -1,3 +1,8 @@
+package Exercise.WildFarm.Animals;
+
+import Exercise.WildFarm.Food.Food;
+import Exercise.WildFarm.Food.Meat;
+
 public class Tiger extends Felime {
     private String livingRegion;
 

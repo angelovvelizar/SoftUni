@@ -1,3 +1,5 @@
+package Exercise.WildFarm.Animals;
+
 public abstract class Felime extends Mammal {
 
 

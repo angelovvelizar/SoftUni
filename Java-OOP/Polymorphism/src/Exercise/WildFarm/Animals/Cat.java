@@ -1,6 +1,8 @@
-import java.text.DecimalFormat;
+package Exercise.WildFarm.Animals;
 
-public class Cat extends Felime{
+import Exercise.WildFarm.Food.Food;
+
+public class Cat extends Felime {
     private String breed;
 
     public Cat(String animalName, String animalType, Double animalWeight, String livingRegion, String breed) {
@@ -16,5 +18,12 @@ public class Cat extends Felime{
     @Override
     public void eat(Food food) {
         super.eat(food);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder baseToString = new StringBuilder(super.toString());
+        baseToString.insert(baseToString.indexOf(",") + 1, " " + this.breed + ",");
+        return baseToString.toString();
     }
 }
