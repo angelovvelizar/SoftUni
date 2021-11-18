@@ -38,8 +38,13 @@ public class UnitRepository implements Repository {
 		return statBuilder.toString();
 	}
 
-	public void removeUnit(String unitType) throws ExecutionControl.NotImplementedException {
-		// TODO: implement for problem 4
-		throw new ExecutionControl.NotImplementedException("message");
+	public void removeUnit(String unitType) {
+		Integer unitAmounts = amountOfUnits.get(unitType);
+		if(unitAmounts == null || unitAmounts <= 0){
+			this.amountOfUnits.remove(unitType);
+			throw new IllegalArgumentException("No such units in repository.");
+		}else if (unitAmounts > 0){
+			this.amountOfUnits.put(unitType,--unitAmounts);
+		}
 	}
 }
