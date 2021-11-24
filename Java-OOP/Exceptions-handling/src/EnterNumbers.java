@@ -24,7 +24,7 @@ public class EnterNumbers {
         int start = Integer.parseInt(str1);
         int end = Integer.parseInt(str2);
 
-        IntStream.range(start,end + 1).forEach(System.out::println);
+        IntStream.rangeClosed(start,end).forEach(System.out::println);
     }
 
     private static boolean isInvalid(String str1, String str2) {
