@@ -98,7 +98,8 @@ public abstract class BaseTable implements Table {
     public void clear() {
         this.numberOfPeople = 0;
         this.isReservedTable = false;
-        this.pricePerPerson = 0;
+        this.healthyFood.clear();
+        this.beverages.clear();
 
     }
 
