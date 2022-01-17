@@ -344,6 +344,8 @@ SELECT `salary` FROM `employees`;
 
 DELETE FROM `occupancies`;
 
+DROP DATABASE `movies`;
+
 
 
 
