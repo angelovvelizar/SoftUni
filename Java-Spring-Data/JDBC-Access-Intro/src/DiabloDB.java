@@ -32,7 +32,6 @@ public class DiabloDB {
                         resultSet.getString("first_name"),
                         resultSet.getString("last_name"),
                         resultSet.getInt("count"));
-
             }
         }
     }

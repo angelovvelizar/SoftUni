@@ -14,7 +14,7 @@ public class ApplicationStarter {
                 "localhost",
                 3306,
                 "root",
-                "",
+                "valenciacf2",
                 "test_orm",
                 ApplicationStarter.class
         );

@@ -57,6 +57,42 @@ public class EntityManagerImpl implements EntityManager {
             }
         }
 
-        return  entity;
+        return entity;
     }
+
+    @Override
+    public <T> boolean persist(T entity) throws IllegalAccessException {
+        Field primaryKey = getId(entity.getClass());
+        primaryKey.setAccessible(true);
+
+        Object value = primaryKey.get(entity);
+
+        if (value == null || (long) value <= 0) {
+            return doInsert(entity, primaryKey);
+        }
+
+        return true; //doUpdate(entity, primaryKey);
+    }
+
+    private <T> boolean doInsert(T entity, Field primaryKey) {
+
+        String tableName = getTableName(entity.getClass());
+        System.out.println();
+
+        //String sql = String.format("INSERT INTO %s(%s) VALUES(%s);", tableName, fieldsName,values);
+
+        return true;
+    }
+
+    private String getTableName(Class<?> entity) {
+        return entity.getAnnotation(Entity.class).tableName();
+    }
+
+    private Field getId(Class<?> entity) {
+        return Arrays.stream(entity.getDeclaredFields())
+                .filter(field -> field.isAnnotationPresent(Id.class))
+                .findFirst()
+                .orElseThrow(() -> new UnsupportedOperationException("Entity does not have primary key"));
+    }
+
 }
