@@ -27,7 +27,7 @@ public class Engine implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("Enter exercise number:");
+        System.out.println("Please enter exercise number or zero to exit: ");
         try {
             int exNumber = Integer.parseInt(bufferedReader.readLine());
 
@@ -67,6 +67,12 @@ public class Engine implements Runnable {
                     break;
                 case 13:
                     removeTowns();
+                    break;
+                case 0:
+                    System.out.println("You ended the program.");
+                    break;
+                default:
+                    System.out.println("Invalid input");
                     break;
             }
         } catch (IOException | IllegalArgumentException e) {
@@ -275,7 +281,7 @@ public class Engine implements Runnable {
     }
 
     private void containsEmployee() throws IOException {
-        System.out.println("Enter employee name: ");
+        System.out.println("Please enter employee name: ");
         String employeeName = bufferedReader.readLine();
 
         TypedQuery<Employee> query = entityManager.createQuery("SELECT DISTINCT e FROM Employee e " +

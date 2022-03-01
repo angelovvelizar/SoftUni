@@ -9,6 +9,7 @@ public class Main {
 
         Engine engine = new Engine(em);
         engine.run();
+        //TODO: check credentials for database connectivity
 
 
     }
