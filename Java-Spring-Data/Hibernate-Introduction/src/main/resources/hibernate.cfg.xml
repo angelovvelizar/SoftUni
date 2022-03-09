@@ -23,7 +23,7 @@
         </property>
 
         <property name = "hibernate.connection.password">
-            valenciacf2
+            12345
         </property>
 
 
